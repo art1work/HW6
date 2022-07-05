@@ -10,7 +10,6 @@ import UIKit
 class WelcomeViewController: UIViewController {
 
     @IBOutlet weak var welcomeLabel: UILabel!
-    @IBOutlet weak var signOutButton: UIButton!
     
     var welcomeMessage: String!
     
