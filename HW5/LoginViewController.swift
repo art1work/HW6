@@ -12,11 +12,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    let username = "User"
-    let password = "12345"
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    private let username = "User"
+    private let password = "12345"
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
@@ -24,7 +21,8 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
     
     @IBAction func signInButtonPressed(_ sender: UIButton) {
@@ -51,12 +49,12 @@ class ViewController: UIViewController {
 
 extension ViewController {
     private func showAlert(with title: String, and message: String) {
-    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             self.passwordTextField.text = ""
         }
         alert.addAction(okAction)
-    present(alert, animated: true)
+        present(alert, animated: true)
     }
 }
 
