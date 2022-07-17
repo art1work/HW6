@@ -11,7 +11,7 @@ class WelcomeViewController: UIViewController {
 
     @IBOutlet weak var welcomeLabel: UILabel!
     
-    var welcomeMessage: String!
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,6 @@ class WelcomeViewController: UIViewController {
         gradient.colors = [UIColor.systemPink.cgColor, UIColor.cyan.cgColor]
         view.layer.insertSublayer(gradient, at: 0)
         
-        guard let userName = welcomeMessage else { return }
-        welcomeLabel.text = "Welcome, \(userName)!"
+        welcomeLabel.text = "Welcome, \(user.person.fullname)!"
     }
 }
